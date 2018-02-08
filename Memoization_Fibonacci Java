@@ -1,0 +1,23 @@
+import java.util.HashMap;
+
+public class MemoizationFib {
+	  
+	
+	static HashMap<Integer, Integer> fibMap= new HashMap<Integer,Integer>();
+	static { fibMap.put(0, 0);
+	fibMap.put(1, 1);
+	}
+	public static int fibdp( int n ){
+	if ( n<0) return 0;
+	if ( fibMap.containsKey(n)) return fibMap.get(n);
+	int fibVAlue = fibdp(n-2 )+ fibdp( n-1);
+	fibMap.put(n,fibVAlue);
+	return fibVAlue; 
+}
+	
+	    public static void main (String args[])
+	    {
+	        int n =9;
+	        System.out.println(fib(n));
+	    }
+	}
