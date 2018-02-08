@@ -1,0 +1,44 @@
+import java.util.Hashtable;
+
+
+public class HashLibrary {
+	
+			
+	public static void main(String[] args) {
+		
+		
+	Hashtable<Books, Integer> myBooks=new Hashtable<Books, Integer>();  
+	
+	
+   myBooks.put(new Books("hary poter ","Sifi "), 1);
+   myBooks.put(new Books("lara ", "Drama "),2) ;
+   myBooks.put(new Books("Tom & Jerry ", "Comedy "), 3);
+   myBooks.put(new Books ("Sailer ", "Drama "),4);
+   myBooks.put(new Books("Lost ", "Romance "),5);
+   myBooks.put(new Books("Seret Lake  ","Mystery "),4);
+   myBooks.put(new Books("hunted ","Action"), 6);
+
+ 
+   
+		for ( Books s : myBooks.keySet()){
+			
+			System.out.println(s + "" + myBooks.get(s));
+		}
+			
+		if ( myBooks.containsKey("Action")){
+			System.out.println("The book is available");
+		}
+		
+		}
+		}
+		
+
+		
+		
+	
+	
+	
+	
+	
+	
+
