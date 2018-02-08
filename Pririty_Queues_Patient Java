@@ -1,0 +1,53 @@
+import java.util.PriorityQueue;
+import java.util.Comparator;
+
+public class PriorityQueus {
+	   public static void main(String args[])
+	    {
+	    
+	    
+	        
+	        Patient p1= new Patient();
+	        p1.position=3;
+	        p1.name="Kate";
+	        Patient p2= new Patient();
+	        p2.name="Charles";
+	        p2.position=1;
+	        Patient p3= new Patient();
+	        p3.name= "Peter";
+	        p3.position=2;
+	        Patient p4= new Patient();
+	        p4.name= "Tom";
+	        p4.position=5;
+	        
+	        
+	        PriorityQueue<Patient> Hospital = new PriorityQueue<Patient>(4, new Comparator<Patient>(){
+	        	public int compare(Patient arg0, Patient arg1) {
+					return arg0.position.compareTo(arg1.position)*-1;
+				}
+				
+			});
+			
+	        Hospital.add(p1);
+	        Hospital.add(p2);
+	        Hospital.add(p3);
+	        Hospital.add(p4);
+	        
+	        int size = Hospital.size();
+	        for (int i = 0; i < size; i++) {
+				System.out.println(Hospital.poll().position);
+	   
+	        }
+	        
+}
+}
+//Patient Class 
+public class Patient {
+
+	String name; 
+	Integer position;
+
+	
+	}
+	
+
