@@ -1,0 +1,62 @@
+import java.util.Date;
+
+public class StudentEx {
+
+    public static void main(String[] args) {
+
+        Student classList[] = new Student[10];
+
+        classList[0] = new Student("Mary", "1231232132", new Date(), new Date());
+        classList[1] = new Student("John", "1231232132", new Date(), new Date());
+        classList[2] = new Student("Jane", "1231232132", new Date(), new Date());
+        classList[3] = new Student("Vade", "1231232132", new Date(), new Date());
+        classList[4] = new Student("Drone", "1231232132", new Date(), new Date());
+        classList[5] = new Student("Don", "1231232132", new Date(), new Date());
+        classList[6] = new Student("Katy", "1231232132", new Date(), new Date());
+        classList[7] = new Student("Monty", "1231232132", new Date(), new Date());
+        classList[8] = new Student("Leya", "1231232132", new Date(), new Date());
+        classList[9] = new Student("Ron", "1231232132", new Date(), new Date());
+
+        mergeSort(classList);
+
+        for (Student s : classList) {
+            System.out.println(s.getName());
+        }
+    }
+
+    public static void mergeSort(Student[] studentArr) {
+
+
+        if (studentArr.length >= 2) {
+            Student[] left = new Student[studentArr.length / 2];
+            Student[] right = new Student[studentArr.length - studentArr.length / 2];
+
+            for (int i = 0; i < left.length; i++) {
+                left[i] = studentArr[i];
+            }
+
+            for (int i = 0; i < right.length; i++) {
+                right[i] = studentArr[i + studentArr.length / 2];
+            }
+
+            mergeSort(left);
+            mergeSort(right);
+            merge(studentArr, left, right);
+        }
+    }
+
+    public static void merge(Student[] studentArr, Student[] left, Student[] right) {
+        int a = 0;
+        int b = 0;
+        for (int i = 0; i < studentArr.length; i++) {
+            if (b >= right.length || (a < left.length && left[a].getName().compareToIgnoreCase(right[b].getName()) < 0)) {
+                studentArr[i] = left[a];
+                a++;
+            } else {
+                studentArr[i] = right[b];
+                b++;
+            }
+        }
+    }}
+    
+
